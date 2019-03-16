@@ -1,0 +1,7 @@
+node_modules
+.merlin
+lib
+build
+
+# generated bs file
+**.bs.js

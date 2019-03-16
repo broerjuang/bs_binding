@@ -1,0 +1,10 @@
+{
+  "name": "bs-react-select",
+  "version": "0.0.0",
+  "scripts": {
+    "build:re": "bsb -make-world",
+    "clean:re": "bsb -clean-world",
+    "watch:re": "yarn build:re -w"
+  },
+  "license": "MIT"
+}
