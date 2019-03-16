@@ -5,7 +5,9 @@ This package contains the component pattern that I use a lot when building Reaso
 ## What's available in this library
 
 - [x] `Component`, a functor to create JSX by only specifying the state
-- [x] `Remote`, talking with remote server using; the assumption is the consumer using `Rest API` as `http communication`
+- [ ] `Remote`, talking with remote server using; the assumption is the consumer using `Rest API` as `http communication`
+  - [x] Query (basically http Get api)
+  - [ ] Mutation like api?
 
 ## Component
 
@@ -58,17 +60,17 @@ module GetTodos = Query.Make({
 })
 
 
-/*
+(*
   inside your render function
 
   responseDecoder is a function that accept Js.Json.t => response.
   if you don't want to write decoder and encoder manually. I suggest you to use atdgen instead. Please read this awesome blogpost:
   https://tech.ahrefs.com/getting-started-with-atdgen-and-bucklescript-1f3a14004081
-*/
+*)
 
 
 <GetTodos url="http://localhost:3000/todos" responseDecoder>
-  ...{(result, refetch, data) => {
+  ...{({result, refetch, data}) => {
     switch (result) {
       | Idle => switch(data) {
         | Some(todos) => <TodosComponent todos>
@@ -79,7 +81,7 @@ module GetTodos = Query.Make({
       | Data(todos) => <TodosComponent todos>
     }
   }}
-</Counter>
+</GetTodos>
 
 ```
 
@@ -87,7 +89,7 @@ module GetTodos = Query.Make({
 
 - [Component by Ryan Florence](https://github.com/reactions/component)
 - [recontainers by Astrocoders](https://github.com/Astrocoders/recontainers)
-- [reason apollo](https://github.com/apollographql/reason-apollo)
+- [Reason Apollo](https://github.com/apollographql/reason-apollo)
 
 ## Have question about this
 
