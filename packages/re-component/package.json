@@ -6,5 +6,8 @@
     "clean:re": "bsb -clean-world",
     "watch:re": "yarn build:re -w"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bs-fetch": "^0.3.1"
+  }
 }
